@@ -62,7 +62,9 @@ class RangeControlOverlay extends Component {
   startDrag (evt) {
     this.setState({ isDragging: true })
     window.addEventListener('mousemove', this.triggerRangeChange)
+    window.addEventListener('ontouchmove', this.triggerRangeChange)
     window.addEventListener('mouseup', this.endDrag)
+    window.addEventListener('ontouchend', this.endDrag)
 
     this.toggleSelection('none')
 
@@ -80,7 +82,9 @@ class RangeControlOverlay extends Component {
 
     this.setState({ isDragging: false })
     window.removeEventListener('mousemove', this.triggerRangeChange)
+    window.removeEventListener('ontouchmove', this.triggerRangeChange)
     window.removeEventListener('mouseup', this.endDrag)
+    window.removeEventListener('ontouchend', this.endDrag)
 
     this.toggleSelection('')
 
@@ -184,6 +188,7 @@ class RangeControlOverlay extends Component {
         className={className}
         style={style}
         onMouseDown={this.startDrag}
+        ontouchstart={this.startDrag}
         onMouseEnter={this.handleIntentStart}
         onMouseMove={this.handleIntentMove}
         onMouseLeave={this.handleIntentEnd}
