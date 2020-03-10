@@ -188,7 +188,7 @@ class RangeControlOverlay extends Component {
         className={className}
         style={style}
         onMouseDown={this.startDrag}
-        ontouchstart={this.startDrag}
+        onTouchStart={this.startDrag}
         onMouseEnter={this.handleIntentStart}
         onMouseMove={this.handleIntentMove}
         onMouseLeave={this.handleIntentEnd}
